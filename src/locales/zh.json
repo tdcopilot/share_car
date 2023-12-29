@@ -3,5 +3,8 @@
     "login_title": "登录三狗云",
     "oath_login_github_title": "继续使用 Github",
     "about": "关于",
-    "contact_us": "联系我们"
+    "contact_us": "联系我们",
+    "404": "404",
+    "404_page": "似乎来到了未知的地方！",
+    "go-to-home": "回到主页"
 }

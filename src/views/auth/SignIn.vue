@@ -45,15 +45,7 @@
     <!--end::Content-->
 
     <!--begin::Footer-->
-    <div class="d-flex flex-center flex-column-auto p-10">
-      <!--begin::Links-->
-      <div class="d-flex align-items-center fw-bold fs-6">
-        <a href="#" class="text-muted text-hover-primary px-2">{{ $t('about') }}</a>
-
-        <a href="#" class="text-muted text-hover-primary px-2">{{ $t('contact_us') }}</a>
-      </div>
-      <!--end::Links-->
-    </div>
+    <FooterUs></FooterUs>
     <!--end::Footer-->
   </div>
 </template>
@@ -62,9 +54,13 @@
 import { defineComponent, onMounted } from "vue";
 import { Actions } from "@/stores/enums/StoreEnums";
 import { useBodyStore } from "@/stores/BodyModule";
+import FooterUs from '@/layout/footer/Footer-Us.vue';
 
 export default defineComponent({
   name: "sign-in",
+  components: {
+    FooterUs,
+  },
   setup() {
     const bodyStore = useBodyStore();
     onMounted(() => {

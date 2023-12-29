@@ -88,7 +88,7 @@ import { setCurrentPageTitle } from "@/core/helpers/breadcrumb";
 const bodyStore = useBodyStore();
 
 onMounted(() => {
-  setCurrentPageTitle("Dashboard");
+  setCurrentPageTitle("主页");
   bodyStore[Actions.ADD_BODY_CLASSNAME]("page-loading-enabled");
 });
 </script>
