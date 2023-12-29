@@ -1,3 +1,7 @@
 {
-    "works-fine": "Translations Works Fine!"
-  }
+    "works-fine": "Translations Works Fine!",
+    "login_title": "登录三狗云",
+    "oath_login_github_title": "继续使用 Github",
+    "about": "关于",
+    "contact_us": "联系我们"
+}

@@ -1,3 +1,7 @@
 {
-  "works-fine": "Translations Works Fine!"
+  "works-fine": "Translations Works Fine!",
+  "login_title": "Sign In to Three Dog Cloud",
+  "oath_login_github_title": "Continue with Github",
+  "about": "About",
+  "contact_us": "Contact Us"
 }
