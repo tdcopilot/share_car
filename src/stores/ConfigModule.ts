@@ -5,8 +5,8 @@ import layoutConfig from '~/core/config/DefaultLayoutConfig';
 import { Actions } from '~/stores/enums/StoreEnums';
 
 interface StoreInfo {
-  config: typeof layoutConfig;
-  initial: typeof layoutConfig;
+  config: object;
+  initial: object;
 }
 
 export const useConfigStore = defineStore('configStore', {
@@ -17,7 +17,7 @@ export const useConfigStore = defineStore('configStore', {
   getters: {
   },
   actions: {
-    [Actions.GET_LAYOUT_CONFIG](path?: string): string | boolean | typeof layoutConfig {
+    [Actions.GET_LAYOUT_CONFIG](path?: string) {
       if(path) {
         return objectPath.get(this.config, path, layoutConfig);
       }

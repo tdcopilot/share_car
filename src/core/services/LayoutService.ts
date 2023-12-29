@@ -24,8 +24,7 @@ class LayoutService {
       qulifiedName: "id",
       value: "kt_body"
     });
-
-    if (objectPath.get(config, "loader.display")) {
+    if (objectPath.get(config.value, "loader.display")) {
       this.bodyStore[Actions.ADD_BODY_CLASSNAME]("page-loading-enabled");
       this.bodyStore[Actions.ADD_BODY_CLASSNAME]("page-loading");
     }
@@ -39,12 +38,12 @@ class LayoutService {
    * @description init header
    */
   public static initHeader(): void {
-    if (objectPath.get(config, "header.fixed.desktop")) {
+    if (objectPath.get(config.value, "header.fixed.desktop")) {
 
       this.bodyStore[Actions.ADD_BODY_CLASSNAME]("header-fixed");
     }
 
-    if (objectPath.get(config, "header.fixed.tabletAndMobile")) {
+    if (objectPath.get(config.value, "header.fixed.tabletAndMobile")) {
       this.bodyStore[Actions.ADD_BODY_CLASSNAME]("header-tablet-and-mobile-fixed")
     }
   }
@@ -53,13 +52,13 @@ class LayoutService {
    * @description init toolbar
    */
   public static initToolbar(): void {
-    if (!objectPath.get(config, "toolbar.display")) {
+    if (!objectPath.get(config.value, "toolbar.display")) {
       return;
     }
 
     this.bodyStore[Actions.ADD_BODY_CLASSNAME]("toolbar-enabled");
 
-    if (objectPath.get(config, "toolbar.fixed")) {
+    if (objectPath.get(config.value, "toolbar.fixed")) {
       this.bodyStore[Actions.ADD_BODY_CLASSNAME]("toolbar-fixed");
     }
 
@@ -70,7 +69,7 @@ class LayoutService {
    * @description init aside
    */
   public static initAside(): void {
-    if (!objectPath.get(config, "aside.display")) {
+    if (!objectPath.get(config.value, "aside.display")) {
       return;
     }
 
@@ -83,7 +82,7 @@ class LayoutService {
    */
   public static initFooter(): void {
     // Fixed header
-    if (objectPath.get(config, "footer.width") === "fixed") {
+    if (objectPath.get(config.value, "footer.width") === "fixed") {
       this.bodyStore[Actions.ADD_BODY_CLASSNAME]("footer-fixed");
     }
   }
