@@ -34,7 +34,7 @@
 
       <!--begin::Mobile logo-->
       <div class="header-logo me-5 me-md-10 flex-grow-1 flex-lg-grow-0">
-        <a href="#">
+        <router-link to="/">
           <img
             alt="Logo"
             src="media/logos/logo-4.png"
@@ -45,7 +45,7 @@
             src="media/logos/logo-5.png"
             class="logo-sticky h-25px"
           />
-        </a>
+        </router-link>
       </div>
       <!--end::Mobile logo-->
 

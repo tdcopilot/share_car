@@ -5,10 +5,7 @@ interface DocMenuConfigOption {
   sectionTitle?: string,
   svgIcon?: string,
   fontIcon?: string,
-  sub?: Array<{
-    heading: string,
-    route: string,
-  }>, 
+  sub?: Array<DocMenuConfigOption>, 
 }
 
 const DocMenuConfig: Array<DocMenuConfigOption> = [];
