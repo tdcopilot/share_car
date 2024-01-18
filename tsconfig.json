@@ -1,49 +1,44 @@
 {
   "compilerOptions": {
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "noImplicitAny": false,
-    "target": "ESNext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true,
-    "importHelpers": true,
-    "isolatedModules": false,
-    "resolveJsonModule": true,
-    "noEmit": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "allowJs": false,
-    "baseUrl": "./",
-    "types": [
-      "element-plus/global"
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
     ],
+    "skipLibCheck": true,
+    "baseUrl": "./",
+    // 这里需要配置
     "paths": {
       "@/*": [
-        "src/*"
-      ],
-      "~/*": [
-        "src/*"
+        "./src/*"
       ]
+      // 这里需要配置
     },
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true
   },
-  "references": [{
-    "path": "./tsconfig.node.json"
-  }],
   "include": [
+    "src",
     "src/**/*.ts",
-    "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "src/**/*.vue"
   ],
-
-  "exclude": [
-    "node_modules"
-  ]
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "rule": {}
 }
