@@ -7,10 +7,12 @@ steps:
   image: appleboy/drone-git-push
   settings:
     branch: master
-    remote: git@github.com:tdcopilot/share_car.git
+    remote: ssh://git@github.com:tdcopilot/share_car.git
+    remote_name: github
     force: true
     commit: true
     followtags: true
+    rebase: true
 
 trigger:
   branch:
