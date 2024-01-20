@@ -7,7 +7,7 @@ steps:
   image: appleboy/drone-git-push
   settings:
     branch: master
-    remote: "ssh://git@github.com:tdcopilot/share_car.git"
+    remote: "ssh://git@github.com/tdcopilot/share_car.git"
     remote_name: github
     ssh_key:
       from_secret: github_ssh_private_key
