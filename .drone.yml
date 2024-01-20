@@ -6,7 +6,7 @@ steps:
 - name: async repo
   image: appleboy/drone-git-push
   settings:
-    branch: master
+    branch: main
     remote: "ssh://git@github.com/tdcopilot/share_car.git"
     remote_name: github
     ssh_key:
