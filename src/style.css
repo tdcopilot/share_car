@@ -1,3 +1,15 @@
 @import "./assets/style/preflight.css"; /*@tailwind base;*/
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: #f5f5f5;
+}
+
+body[class$=dark-mode] {
+  background-color: #000000;
+}
+
+body[class$=dark-mode] .loader {
+  --primary-color: #fff;
+}

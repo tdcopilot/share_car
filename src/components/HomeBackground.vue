@@ -3,7 +3,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue';
 import { Camera, Color, Geometry, Mesh, Program, Renderer } from 'ogl';
 import { fragment, vertex } from '@/assets/glsl.ts';
 
-const containerRef = ref<HTMLDivElement | null>(null);
+const containerRef = ref<HTMLDivElement>();
 let animationId = 1;
 const renderer = new Renderer({ depth: false, alpha: true });
 const gl = renderer.gl;
@@ -60,7 +60,7 @@ function update(t: number): void {
 
 onMounted(() => {
   try {
-    containerRef?.value.appendChild(gl.canvas);
+    containerRef.value?.appendChild(gl.canvas);
     gl.clearColor(1, 1, 1, 0);
     window.addEventListener('resize', resize, false);
     resize();

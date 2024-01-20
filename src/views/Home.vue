@@ -3,24 +3,28 @@ import { computed, reactive, watch } from 'vue';
 import { useDarkMode, useScroll } from 'vue-hooks-plus';
 import { BulbOutlined, CodeOutlined } from '@ant-design/icons-vue';
 import HomeBackground from '@/components/HomeBackground.vue';
+import { BASE_URL } from '@/config';
 import { useUserStore } from '@/store/user.ts';
 
 const userStore = useUserStore();
+const redirectUrl = BASE_URL + '/auth/github/redirect';
 
 const scroll = useScroll();
+
+const [darkMode] = useDarkMode();
 
 const headerStyle = reactive({
   backgroundColor: 'transparent',
 });
 
-const [darkMode] = useDarkMode();
+const backgroundColor = computed(() => {
+  return darkMode.value ? '#111827' : '#ffffff';
+});
 
 watch(scroll, (value) => {
   headerStyle.backgroundColor =
     value !== undefined && value.top > 0
-      ? darkMode.value
-        ? '#111827'
-        : '#ffffff'
+      ? backgroundColor.value
       : 'transparent';
 });
 
@@ -37,11 +41,7 @@ const userInfo = computed(() => {
     >
       <img alt="" src="" />
 
-      <a
-        v-if="!userInfo.account_id"
-        href="https://meeseeks.box.bawcat.wiki/github/api/auth/github/redirect"
-        target="_self"
-      >
+      <a v-if="!userInfo.account_id" :href="redirectUrl" target="_self">
         <a-button type="dashed">登录</a-button>
       </a>
       <template v-else>
@@ -51,9 +51,9 @@ const userInfo = computed(() => {
           </a>
           <template #overlay>
             <a-menu>
-              <a-menu-item> 个人中心 </a-menu-item>
-              <a-menu-item> 我的车票 </a-menu-item>
-              <a-menu-item> 我的订单 </a-menu-item>
+              <a-menu-item> 个人中心</a-menu-item>
+              <a-menu-item> 我的车票</a-menu-item>
+              <a-menu-item> 我的订单</a-menu-item>
             </a-menu>
           </template>
         </a-dropdown>

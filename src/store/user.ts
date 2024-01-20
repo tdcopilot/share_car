@@ -1,5 +1,7 @@
+import { useRouter } from 'vue-router';
 import { defineStore } from 'pinia';
 import { getUserInfo } from '@/api/user.ts';
+import { removeExpire, removeToken } from '@/utils/auth.ts';
 
 export interface IUserInfo {
   // 用户唯一ID
@@ -49,12 +51,18 @@ export const useUserStore = defineStore('userStore', {
   },
   actions: {
     getUserInfo() {
-      getUserInfo<IUserInfo>().then((res): void => {
-        this.access_id = res.account_id;
-        this.userInfo = res;
-      });
+      getUserInfo<IUserInfo>()
+        .then((res): void => {
+          this.access_id = res.account_id;
+          this.userInfo = res;
+        })
+        .catch(() => {
+          this.logout();
+        });
     },
     logout() {
+      removeExpire();
+      removeToken();
       this.access_id = '';
       this.userInfo = ((): IUserInfo => ({
         account_id: '',
@@ -68,6 +76,7 @@ export const useUserStore = defineStore('userStore', {
         gender: 1,
         bio: '',
       }))();
+      useRouter().push('home');
     },
   },
 });
