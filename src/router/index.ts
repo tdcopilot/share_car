@@ -12,18 +12,18 @@ const router = createRouter({
     {
       path: '/redirect',
       name: 'redirect',
-      component: async () => await import('@/views/Redirect.vue'),
+      component: () => import('@/views/Redirect.vue'),
     },
     {
       path: '/home',
       name: 'home',
-      component: async () => await import('@/views/Home.vue'),
+      component: () => import('@/views/Home.vue'),
     },
   ],
 });
 
-router.beforeEach((to, from, next) => {
-  const token = getToken();
+router.beforeEach(async (to, from, next) => {
+  const token = await getToken();
   const userStore = useUserStore();
   if (token != null && userStore.access_id === '') {
     userStore.getUserInfo();

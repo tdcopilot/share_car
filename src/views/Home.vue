@@ -31,6 +31,8 @@ watch(scroll, (value) => {
 const userInfo = computed(() => {
   return userStore.userInfo;
 });
+
+const logout = userStore.logout;
 </script>
 
 <template>
@@ -51,9 +53,10 @@ const userInfo = computed(() => {
           </a>
           <template #overlay>
             <a-menu>
-              <a-menu-item> 个人中心</a-menu-item>
-              <a-menu-item> 我的车票</a-menu-item>
-              <a-menu-item> 我的订单</a-menu-item>
+              <a-menu-item>个人中心</a-menu-item>
+              <a-menu-item>我的车票</a-menu-item>
+              <a-menu-item>我的订单</a-menu-item>
+              <a-menu-item @click="logout">退出登录</a-menu-item>
             </a-menu>
           </template>
         </a-dropdown>

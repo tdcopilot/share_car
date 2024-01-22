@@ -2,7 +2,13 @@
 import { onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { githubLogin } from '@/api/user';
-import { setExpire, setToken } from '@/utils/auth.ts';
+import { ITokenInfo } from '@/interface/user.ts';
+import {
+  setExpire,
+  setRefreshExpire,
+  setRefreshToken,
+  setToken,
+} from '@/utils/auth.ts';
 
 const router = useRouter();
 const route = useRoute();
@@ -15,18 +21,18 @@ function handleGithubAuthorized() {
     return;
   }
 
-  githubLogin<{
-    expire: number;
-    token: string;
-  }>({
+  githubLogin<ITokenInfo>({
     code,
     state,
   })
     .then((res) => {
-      const { expire, token } = res;
+      const { expire, token, refresh_token, refresh_token_expire } = res;
 
       setExpire(expire);
       setToken(token);
+
+      setRefreshToken(refresh_token);
+      setRefreshExpire(refresh_token_expire);
     })
     .finally(() => {
       router.replace('home');
